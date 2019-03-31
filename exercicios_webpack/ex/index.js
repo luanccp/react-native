@@ -1,1 +1,1 @@
-console.log("Luanzin")
+require('./duvidaCruel')
