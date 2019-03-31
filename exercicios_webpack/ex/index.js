@@ -1,3 +1,7 @@
-import Pessoa from './pessoa'
-const pessoa = new Pessoa('Luan Castheloge')
-console.log(pessoa.toString())
+import 'react'
+
+export default props => {
+    <h2>EIEIEI</h2>
+}
+
+console.log('Funcionou!')
