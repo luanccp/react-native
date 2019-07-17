@@ -32,6 +32,16 @@ export default class App extends React.Component {
       console.log(error.toString(error));
     }
   };
+  SignIn = (email, password) => {
+    try {
+      firebase.auth().signInWithEmailAndPassword(email, password);
+      firebase.auth().onAuthStateChanged(user => {
+         alert(user.email);
+      })
+    } catch (error) {
+      console.log(error.toString(error));
+    }
+  };
   render() { 
     return (
       <Container  style={styles.container}>
@@ -53,7 +63,9 @@ export default class App extends React.Component {
                 onChangeText={password => this.setState({ password })}
               />
             </Item>
-            <Button full rounded>
+            <Button full rounded
+              onPress={() => this.SignIn(this.state.email, this.state.password)}
+            >
               <Text>SignIn</Text>
             </Button>
             <Button full rounded success 
@@ -72,7 +84,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    //alignItems: 'center',
-    justifyContent: 'center',
-  },
+	//alignItems: 'center',
+	justifyContent: 'center',
+	},
 });
